@@ -61,7 +61,7 @@ endif
 
 HAS_PKG_CONFIG := $(shell command -v $(PKG_CONFIG) 2>&1 >/dev/null && echo yes || echo no)
 
-RTE_SDK ?= $(abspath ../deps/dpdk-19.11.1)
+RTE_SDK ?= $(abspath ../deps/dpdk-19.11.3)
 RTE_TARGET ?= $(shell uname -m)-native-linuxapp-gcc
 DPDK_LIB ?= dpdk
 
@@ -108,8 +108,8 @@ endif
 # these headers.  Should fix the warnings.  Using -isystem also disables
 # -MMD dependency recording (should we use -MD?).
 COREDIR := $(abspath .)
-CXXARCHFLAGS ?= -march=native
-CXXFLAGS += -std=c++17 -g3 -ggdb3 $(CXXARCHFLAGS) \
+CPU ?= native
+CXXFLAGS += -std=c++17 -g3 -ggdb3 -march=$(CPU) \
             -isystem $(DPDK_INC_DIR) -isystem $(COREDIR) \
             -isystem $(dir $<).. -isystem $(COREDIR)/modules \
             -D_GNU_SOURCE \
