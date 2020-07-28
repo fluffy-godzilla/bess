@@ -1130,13 +1130,14 @@ message VXLANDecapArg {
 }
 
 /**
- * VXLANEncap module wraps a packet in a VXLAN header with a specified destination port.
+ * VXLANEncap module wraps a packet in a VXLAN header with a specified destination and/or source port.
  *
  * __Input Gates__: 1
  * __Output Gates__: 1
  */
 message VXLANEncapArg {
   uint64 dstport = 1; /// The destination UDP port
+  uint64 srcport = 2; /// The source UDP port (address hash is used if 0)
 }
 
 /**

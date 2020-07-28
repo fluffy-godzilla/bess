@@ -50,6 +50,7 @@ class VXLANEncap final : public Module {
 
  private:
   bess::utils::be16_t dstport_;
+  bess::utils::be16_t srcport_;
 };
 
 #endif  // BESS_MODULES_VXLANENCAP_H_

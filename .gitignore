@@ -7,6 +7,7 @@ core/.deps
 core/extra.mk
 core/extra.dpdk.mk
 core/kmod/.cache.mk
+core/kmod/*.mod
 *.retry
 *.cache.mk
 
